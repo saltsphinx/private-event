@@ -1,0 +1,18 @@
+Private Events
+User can create Events
+User can attend many events
+
+Event has many attendees
+Event has a specific time and place
+
+User
+name :string
+has_many :events, depedent: :destroy
+belongs_to :attending_events, class_name: 'Event', foreign_key: 'attending_id'
+
+Event
+name :string
+time :date
+location :string
+belongs_to :host, class_name: 'User', foreign_key: 'host_id'
+has_many :attendees, class_name: 'User'
